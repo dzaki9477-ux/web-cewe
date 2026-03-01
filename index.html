@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mau Jadi Pacarku?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff0066, #ff66a3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #ff0066;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 15px;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background: #ff0066;
+            color: white;
+        }
+
+        #no {
+            background: black;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>Mau jadi pacarku nggak? 😳❤️</h1>
+    <button id="yes">MAU ❤️</button>
+    <button id="no">TIDAK 💔</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    let scale = 1;
+
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        scale -= 0.1;
+        if (scale > 0.2) {
+            noBtn.style.transform = "scale(" + scale + ")";
+        }
+
+        alert("Yakin nolak aku? 😡💔");
+    });
+
+    yesBtn.addEventListener("click", () => {
+        document.body.innerHTML = `
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+                background:#ff0066;
+                color:white;
+                font-size:45px;
+                text-align:center;
+                flex-direction:column;
+            ">
+                YEAYYY ❤️🔥<br>
+                SEKARANG KAMU PACARKU 💍<br>
+                TIDAK ADA PILIHAN BATAL 😈
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
